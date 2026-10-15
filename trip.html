@@ -1,0 +1,1025 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>安心游泰国 · 开口泰</title>
+<meta name="description" content="泰国旅游其实很安全——能开口，就不用靠中间人。飞猪真实行程 + 每站泰语和防坑提醒 + 这靠谱吗 + 一键求助。">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F6EDDC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14162E" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+/* Same travel-journal look as 开口泰: cream paper, flag navy + red, temple gold, watercolour stickers. */
+:root {
+  --bg: #F6EDDC; --surface: #FFFBF3; --sunk: #EFE3CC; --ink: #1E2350; --muted: #776F62; --line: #E5D6BC;
+  --accent: #C5283D; --accent-soft: #FBE4DF; --primary: #1E2350; --on-primary: #FFF6E6;
+  --gold: #D99A1E; --gold-soft: #F8E7C2; --leaf: #3D8A4F; --leaf-soft: #DCEBD6; --on-accent: #FFFFFF;
+  --warn: #B4540A; --warn-soft: #FCEBD5;
+  --t-mid: #6B7280; --t-low: #2463C9; --t-fall: #C2410C; --t-high: #9A1FA8; --t-rise: #0E8159;
+  --shadow: 0 1px 0 var(--line), 0 6px 14px -8px rgba(80,55,20,.28); --grain: .07;
+  --f-display: "Mitr", "PingFang SC", "Noto Sans SC", system-ui, sans-serif;
+  --f-body: "Sarabun", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+  --f-thai: "Sarabun", "Thonburi", "Noto Sans Thai", sans-serif;
+  --f-hand: "Caveat", "Mitr", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14162E; --surface: #1D2043; --sunk: #262A52; --ink: #F5EBD8; --muted: #A9A6C2; --line: #33376A;
+    --accent: #FF6B7D; --accent-soft: #3B1F3A; --primary: #F2B544; --on-primary: #14162E; --gold: #F2B544; --gold-soft: #3A3350;
+    --leaf: #6CCB86; --leaf-soft: #1C3A33; --on-accent: #14162E; --warn: #FFB067; --warn-soft: #3A2A22;
+    --t-mid: #B4B8C8; --t-low: #7FB0FF; --t-fall: #FF8A57; --t-high: #E58AF0; --t-rise: #4FD69E;
+    --shadow: 0 1px 0 rgba(0,0,0,.25), 0 8px 18px -10px rgba(0,0,0,.6); --grain: .05; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14162E; --surface: #1D2043; --sunk: #262A52; --ink: #F5EBD8; --muted: #A9A6C2; --line: #33376A;
+  --accent: #FF6B7D; --accent-soft: #3B1F3A; --primary: #F2B544; --on-primary: #14162E; --gold: #F2B544; --gold-soft: #3A3350;
+  --leaf: #6CCB86; --leaf-soft: #1C3A33; --on-accent: #14162E; --warn: #FFB067; --warn-soft: #3A2A22;
+  --t-mid: #B4B8C8; --t-low: #7FB0FF; --t-fall: #FF8A57; --t-high: #E58AF0; --t-rise: #4FD69E;
+  --shadow: 0 1px 0 rgba(0,0,0,.25), 0 8px 18px -10px rgba(0,0,0,.6); --grain: .05; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; min-height: 100%; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.55; -webkit-tap-highlight-color: transparent; }
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: var(--grain);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35  0 0 0 0 .25  0 0 0 0 .1  0 0 0 1.4 -.35'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E"); }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible, a:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+a { color: inherit; }
+h1, h2, h3, h4 { font-family: var(--f-display); font-weight: 500; line-height: 1.25; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.wrap { max-width: 720px; margin: 0 auto; padding-inline: 16px; padding-block: 16px 120px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+.flag { height: 6px; background: linear-gradient(#A51931 0 16.6%, #F4F5F8 0 33.3%, #2D2A4A 0 66.6%, #F4F5F8 0 83.3%, #A51931 0); }
+.thai { font-family: var(--f-thai); }
+.hand { font-family: var(--f-hand); font-weight: 600; }
+.muted { color: var(--muted); }
+.small { font-size: 14px; }
+.stk { display: block; pointer-events: none; user-select: none; -webkit-user-drag: none; filter: drop-shadow(0 3px 4px rgba(60,40,10,.2)); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 14px; text-decoration: none; white-space: nowrap; }
+.btn.primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 600; }
+.btn.navy { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
+.btn.big { padding: 12px 20px; font-size: 16px; }
+.btn:disabled { opacity: .5; cursor: default; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 8px; border: 1.5px dashed var(--line); background: var(--surface); font-size: 13px; color: var(--muted); }
+.chip b { color: var(--ink); font-weight: 600; }
+.ex { border: 1.5px dashed var(--line); background: var(--surface); border-radius: 10px; padding: 6px 10px; font-size: 13px; color: var(--muted); text-align: left; }
+.panel { display: grid; gap: 12px; padding: 16px; border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); }
+.tape { position: relative; }
+.tape::before { content: ""; position: absolute; top: -9px; left: 50%; width: 64px; height: 20px; margin-left: -32px; transform: rotate(-3deg); border-radius: 2px; pointer-events: none;
+  background: repeating-linear-gradient(45deg, rgba(217,154,30,.55) 0 6px, rgba(248,231,194,.8) 6px 12px); }
+.err { font-size: 14px; padding: 10px 12px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); }
+.seg { display: inline-flex; gap: 2px; padding: 3px; background: var(--sunk); border-radius: 10px; }
+.seg button { border: 0; background: none; padding: 4px 10px; border-radius: 8px; font-size: 13px; color: var(--muted); }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); font-weight: 600; box-shadow: var(--shadow); }
+textarea { font: inherit; font-size: 16px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; width: 100%; resize: vertical; min-height: 84px; }
+
+/* hero */
+.hero { position: relative; display: grid; gap: 4px; min-height: 176px; padding-top: 6px; }
+.hero h1 { font-size: clamp(34px, 10vw, 46px); line-height: 1.05; max-width: 60%; }
+.hero h1 .th { display: block; font-family: var(--f-thai); font-size: 18px; color: var(--accent); font-weight: 600; margin-top: 6px; }
+.hero .slogan { position: relative; z-index: 1; font-size: 22px; color: var(--gold); transform: rotate(-3deg); justify-self: start; margin: 12px 0 0 2px; line-height: 1.2; }
+.collage { position: absolute; right: -6px; top: 0; width: 200px; height: 180px; pointer-events: none; }
+.collage .stk { position: absolute; }
+.collage .s1 { width: 132px; right: 0; top: 0; transform: rotate(6deg); }
+.collage .s2 { width: 100px; right: 92px; top: 72px; transform: rotate(-8deg); }
+.collage .s3 { width: 62px; right: 8px; top: 108px; transform: rotate(12deg); }
+@media (max-width: 440px) { .collage { transform: scale(.82); transform-origin: top right; } }
+@media (max-width: 350px) { .collage { transform: scale(.68); } }
+
+.truth h2 { font-size: 20px; }
+.truth ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; font-size: 15px; }
+.truth .more { justify-self: start; }
+.quote { border-left: 3px solid var(--gold); padding: 4px 0 4px 12px; display: grid; gap: 4px; }
+.quote p { font-size: 15px; }
+.quote .who { font-size: 13px; color: var(--muted); }
+
+.composer { display: grid; gap: 10px; }
+.composer h2 { font-size: 20px; }
+.loading { display: grid; gap: 8px; justify-items: start; }
+.loading .step { font-size: 15px; color: var(--muted); }
+.loading .step.on { color: var(--ink); font-weight: 600; }
+.loading .step.done { color: var(--leaf); }
+.bar { height: 6px; width: 100%; border-radius: 3px; background: var(--sunk); overflow: hidden; }
+.bar i { display: block; height: 100%; width: 30%; background: var(--accent); border-radius: 3px; animation: slide 1.4s ease-in-out infinite; }
+@keyframes slide { 0% { transform: translateX(-100%); } 100% { transform: translateX(340%); } }
+@media (prefers-reduced-motion: reduce) { .bar i { animation: none; width: 100%; opacity: .5; } }
+
+.tools { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); }
+.tool { position: relative; display: grid; gap: 4px; align-content: start; text-align: left; padding: 16px; border-radius: 16px; border: 0; background: var(--surface); box-shadow: var(--shadow); text-decoration: none; }
+.tool b { font-family: var(--f-display); font-weight: 500; font-size: 18px; padding-right: 54px; }
+.tool small { color: var(--muted); font-size: 14px; }
+.tool .stk { position: absolute; right: -2px; top: -18px; width: 56px; transform: rotate(8deg); }
+.tool.red { background: var(--accent); color: var(--on-accent); }
+.tool.red small { color: var(--on-accent); opacity: .88; }
+.mytrip { background: var(--primary); color: var(--on-primary); }
+.mytrip small, .mytrip .muted { color: var(--on-primary); opacity: .8; }
+.foot { font-size: 13px; color: var(--muted); display: grid; gap: 6px; text-align: center; }
+.foot a { color: var(--muted); }
+
+/* topbar */
+.topbar { position: sticky; top: 0; z-index: 5; background: var(--bg); display: flex; align-items: center; gap: 8px; padding: 8px 16px; margin-inline: -16px; border-bottom: 1px solid var(--line); }
+.topbar h2 { font-size: 18px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.back { border: 0; background: none; font-size: 15px; padding: 8px 8px 8px 0; color: var(--muted); text-decoration: none; white-space: nowrap; flex: none; }
+.who-am { display: inline-flex; gap: 6px; align-items: center; white-space: nowrap; }
+.topbar .right { margin-left: auto; display: flex; gap: 6px; }
+
+/* plan */
+.plan-head { display: grid; gap: 8px; }
+.plan-head h1 { font-size: 26px; }
+.days { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+.days::-webkit-scrollbar { display: none; }
+.days button { flex: none; border: 1.5px solid var(--line); background: var(--surface); border-radius: 12px; padding: 6px 12px; display: grid; gap: 0; text-align: left; font-size: 13px; color: var(--muted); }
+.days button b { font-family: var(--f-display); font-weight: 500; font-size: 16px; color: var(--ink); }
+.days button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.days button[aria-pressed="true"] b { color: var(--on-accent); }
+.days button .now { font-size: 11px; }
+.live { display: flex; gap: 8px; align-items: center; padding: 10px 12px; border-radius: 12px; background: var(--leaf-soft); color: var(--leaf); font-size: 14px; }
+.live.pre { background: var(--gold-soft); color: var(--ink); }
+
+.stops { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.stop { position: relative; padding-left: 28px; }
+.stop::before { content: ""; position: absolute; left: 7px; top: 0; bottom: 0; width: 3px; background: var(--line); }
+.stop:first-child::before { top: 22px; }
+.stop:last-child::before { bottom: calc(100% - 22px); }
+.stop .dot { position: absolute; left: 0; top: 14px; width: 17px; height: 17px; border-radius: 50%; background: var(--bg); border: 3px solid var(--gold); }
+.stop.cur .dot { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+.stop-head { width: 100%; display: flex; align-items: baseline; gap: 10px; border: 0; background: none; text-align: left; padding: 10px 4px; border-radius: 10px; }
+.stop-head .time { font-family: var(--f-display); font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; flex: none; width: 44px; }
+.stop-head .ttl { font-size: 17px; font-weight: 600; min-width: 0; }
+.stop-head .type { margin-left: auto; flex: none; font-size: 12px; color: var(--muted); padding: 1px 8px; border-radius: 999px; background: var(--sunk); }
+.stop.cur .stop-head .type { background: var(--accent); color: var(--on-accent); }
+.stop-body { display: grid; gap: 12px; padding: 2px 0 18px 4px; }
+.place { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 10px; border-radius: 14px; background: var(--surface); box-shadow: var(--shadow); }
+.place img { width: 92px; height: 92px; object-fit: cover; border-radius: 10px; background: var(--sunk); }
+.place .info { display: grid; gap: 4px; align-content: start; min-width: 0; }
+.place .name { font-weight: 600; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.place .sub { font-size: 13px; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.place .acts { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 2px; }
+.place .acts .btn { padding: 5px 10px; font-size: 13px; }
+.place.noimg { grid-template-columns: 1fr; }
+.pnote { font-size: 14px; padding: 8px 12px; border-radius: 10px; background: var(--gold-soft); }
+.warn { display: grid; gap: 8px; padding: 12px 14px; border-radius: 14px; background: var(--warn-soft); }
+.warn h4 { font-size: 15px; color: var(--warn); }
+.warn ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.warn li { display: grid; gap: 1px; font-size: 14px; }
+.warn li b { font-weight: 600; }
+.warn li span { color: var(--ink); opacity: .85; }
+.sec-h { font-family: var(--f-display); font-size: 15px; color: var(--accent); }
+.phrases { display: grid; gap: 8px; }
+.phrase { display: grid; gap: 2px; padding: 12px 14px; border-radius: 14px; background: var(--surface); box-shadow: var(--shadow); }
+.phrase .toks { display: flex; flex-wrap: wrap; gap: 0 4px; font-family: var(--f-thai); font-size: 23px; line-height: 1.5; }
+.phrase .particle { color: var(--muted); }
+.phrase .rom { font-size: 15px; }
+.phrase .zh { font-size: 15px; color: var(--muted); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.phrase .acts { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.phrase .acts .btn { padding: 6px 12px; font-size: 13px; }
+.ai { font-style: normal; font-size: 11px; padding: 0 6px; border-radius: 4px; background: var(--sunk); color: var(--muted); }
+.t-mid { color: var(--t-mid); } .t-low { color: var(--t-low); } .t-fall { color: var(--t-fall); } .t-high { color: var(--t-high); } .t-rise { color: var(--t-rise); }
+.legend { display: flex; flex-wrap: wrap; gap: 2px 12px; font-size: 12px; color: var(--muted); }
+
+/* guide */
+.gsec { display: grid; gap: 10px; }
+.gsec h2 { font-size: 20px; }
+.gsec ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.gsec .note { font-size: 15px; padding: 10px 12px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); }
+.kv { display: grid; gap: 0; border-radius: 14px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow); }
+.kv div { display: grid; grid-template-columns: 96px 1fr; gap: 10px; padding: 10px 14px; border-top: 1px solid var(--line); font-size: 15px; }
+.kv div:first-child { border-top: 0; }
+.kv b { font-weight: 600; }
+.qlist { display: grid; gap: 10px; }
+.qlist div { display: grid; gap: 2px; }
+.qlist b { font-weight: 600; }
+.sources { font-size: 13px; color: var(--muted); display: grid; gap: 4px; }
+.sources ol { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+
+/* check */
+.levels { display: grid; gap: 10px; }
+.result { display: grid; gap: 10px; padding: 16px; border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); border-top: 6px solid var(--muted); }
+.result.high { border-top-color: var(--accent); }
+.result.mid { border-top-color: var(--warn); }
+.result.low { border-top-color: var(--leaf); }
+.result .lv { font-family: var(--f-display); font-size: 15px; }
+.result.high .lv { color: var(--accent); } .result.mid .lv { color: var(--warn); } .result.low .lv { color: var(--leaf); }
+.result h3 { font-size: 20px; }
+.result ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+.result .fine { font-size: 13px; color: var(--muted); }
+.pick { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.pick img { width: 72px; height: 72px; object-fit: cover; border-radius: 10px; }
+details summary { cursor: pointer; font-size: 14px; color: var(--muted); }
+details pre { white-space: pre-wrap; font-family: inherit; font-size: 14px; margin: 6px 0 0; padding: 10px; border-radius: 10px; background: var(--sunk); }
+
+/* sos */
+.sosgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.sosbtn { display: grid; gap: 2px; padding: 16px 12px; border-radius: 16px; border: 0; background: var(--accent); color: var(--on-accent); text-align: left; box-shadow: var(--shadow); }
+.sosbtn .thai { font-size: 22px; line-height: 1.3; }
+.sosbtn small { font-size: 14px; opacity: .9; }
+.sosbtn.calm { background: var(--surface); color: var(--ink); }
+.tel { display: flex; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 14px; background: var(--surface); box-shadow: var(--shadow); text-decoration: none; }
+.tel b { font-family: var(--f-display); font-weight: 500; font-size: 20px; font-variant-numeric: tabular-nums; min-width: 64px; }
+.tel span { font-size: 14px; color: var(--muted); }
+.tel.near { outline: 2px solid var(--leaf); }
+.tel .go { margin-left: auto; color: var(--accent); font-size: 14px; white-space: nowrap; }
+.tels { display: grid; gap: 8px; }
+
+/* full-screen card shown to locals */
+.modal { position: fixed; inset: 0; z-index: 30; display: grid; place-items: center; background: var(--bg); padding: 20px 20px calc(20px + env(safe-area-inset-bottom, 0px)); overflow: auto; }
+.modal .inner { width: 100%; max-width: 560px; min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; justify-items: center; text-align: center; }
+.modal .inner > * { max-width: 100%; }
+.modal .btn { white-space: normal; }
+.modal .th-big { font-family: var(--f-thai); font-size: clamp(38px, 11vw, 68px); line-height: 1.35; overflow-wrap: anywhere; }
+.modal .mid { font-size: clamp(20px, 5.5vw, 28px); font-weight: 600; }
+.modal .addr { font-size: 18px; color: var(--ink); overflow-wrap: anywhere; }
+.modal .sub { color: var(--muted); font-size: 16px; }
+.modal .x { position: fixed; top: calc(10px + env(safe-area-inset-top, 0px)); right: 12px; border: 0; background: var(--surface); border-radius: 50%; width: 44px; height: 44px; font-size: 22px; box-shadow: var(--shadow); }
+.toast { position: fixed; left: 50%; bottom: calc(84px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 40; max-width: calc(100% - 32px); padding: 10px 16px; border-radius: 12px; background: var(--primary); color: var(--on-primary); font-size: 14px; box-shadow: var(--shadow); }
+
+/* live interpreter */
+.thread { display: grid; gap: 12px; padding-bottom: 150px; }
+.bub { display: grid; gap: 4px; max-width: 88%; padding: 10px 14px; border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); }
+.bub.me { justify-self: end; border-radius: 16px 16px 4px 16px; background: var(--accent-soft); box-shadow: none; }
+.bub.them { justify-self: start; border-radius: 16px 16px 16px 4px; }
+.bub .src { font-size: 14px; color: var(--muted); }
+.bub .dst { font-size: 20px; line-height: 1.45; }
+.bub .dst.th { font-family: var(--f-thai); font-size: 26px; }
+.bub .acts { display: flex; gap: 6px; flex-wrap: wrap; }
+.bub .acts .btn { padding: 5px 10px; font-size: 13px; }
+.bub.live { outline: 2px dashed var(--accent); }
+.bub .who2 { font-size: 12px; color: var(--muted); }
+.talkbar { position: fixed; left: 0; right: 0; bottom: calc(60px + env(safe-area-inset-bottom, 0px)); z-index: 9; padding: 10px 16px; background: linear-gradient(transparent, var(--bg) 30%); }
+.talkbar .in { max-width: 720px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.talkbtn { display: grid; gap: 2px; justify-items: center; padding: 14px 8px; border-radius: 18px; border: 0; background: var(--accent); color: var(--on-accent); box-shadow: var(--shadow); }
+.talkbtn b { font-family: var(--f-display); font-weight: 500; font-size: 18px; }
+.talkbtn small { font-size: 13px; opacity: .9; }
+.talkbtn.them { background: var(--primary); color: var(--on-primary); }
+.talkbtn.on { animation: pulse 1.2s ease-in-out infinite; outline: 3px solid var(--gold); }
+@keyframes pulse { 50% { transform: scale(.97); } }
+@media (prefers-reduced-motion: reduce) { .talkbtn.on { animation: none; } }
+.status { font-size: 14px; color: var(--muted); text-align: center; }
+.geo { display: grid; gap: 6px; padding: 12px 14px; border-radius: 14px; border: 2px dashed var(--accent); background: var(--surface); }
+.geo b { font-family: var(--f-display); font-weight: 500; font-size: 16px; }
+.geo small { color: var(--muted); font-size: 13px; }
+.geo.on { border-style: solid; background: var(--accent-soft); }
+.modal .alert-k { font-size: 15px; font-weight: 600; color: var(--on-accent); background: var(--accent); padding: 4px 14px; border-radius: 999px; }
+.modal .th-mid { font-family: var(--f-thai); font-size: clamp(26px, 7vw, 40px); line-height: 1.35; }
+.offline { font-size: 14px; padding: 8px 12px; border-radius: 10px; background: var(--primary); color: var(--on-primary); }
+/* read a photo */
+.ritems { display: grid; gap: 8px; }
+.ritem { display: grid; gap: 2px; padding: 12px 14px; border-radius: 14px; background: var(--surface); box-shadow: var(--shadow); }
+.ritem .orig { font-family: var(--f-thai); font-size: 21px; line-height: 1.4; }
+.ritem .rom { font-size: 14px; }
+.ritem .zh { font-size: 16px; font-weight: 600; }
+.ritem .meta { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; font-size: 13px; color: var(--muted); }
+.ritem .meta b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.ritem .meta i { font-style: normal; padding: 0 8px; border-radius: 999px; background: var(--warn-soft); color: var(--warn); }
+.ritem .acts { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.ritem .acts .btn { padding: 5px 10px; font-size: 13px; }
+.rwarn { font-size: 15px; padding: 10px 12px; border-radius: 10px; background: var(--warn-soft); color: var(--warn); }
+
+nav.tabbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; background: var(--surface); border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom, 0px); }
+nav.tabbar .in { max-width: 720px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
+nav.tabbar a { height: 60px; display: grid; place-items: center; align-content: center; gap: 0; font-size: 12px; color: var(--muted); text-decoration: none; }
+nav.tabbar a .ic { font-family: var(--f-display); font-size: 17px; }
+nav.tabbar a[aria-current="page"] { color: var(--accent); }
+nav.tabbar a.sos { color: var(--accent); }
+</style>
+
+<div class="flag"></div>
+<main id="app" class="wrap" aria-live="polite"></main>
+<nav class="tabbar" aria-label="主导航"><div class="in">
+  <a href="#/" data-nav="home"><span class="ic">行程</span>飞猪真实数据</a>
+  <a href="#/guide" data-nav="guide"><span class="ic">攻略</span>安不安全</a>
+  <a href="#/check" data-nav="check"><span class="ic">靠谱吗</span>截图问 AI</a>
+  <a href="#/sos" data-nav="sos" class="sos"><span class="ic">求助</span>SOS</a>
+</div></nav>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const DAY = 86400000;
+  const app = $("#app");
+
+  // ---------- state (this browser only) ----------
+  const KEY = "kaikou-trip-v1";
+  let T = { g: null, plan: null, intent: null, meta: null, text: "", extra: {} };
+  try { const raw = localStorage.getItem(KEY); if (raw) T = Object.assign(T, JSON.parse(raw)); } catch (e) {}
+  // Reuse the ครับ/ค่ะ choice from the main 开口泰 app on the same site.
+  if (!T.g) try { const m = JSON.parse(localStorage.getItem("bianzi-thai-v1") || "null"); if (m && m.g) T.g = m.g; } catch (e) {}
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(T)); } catch (e) {} };
+  const G = () => T.g === "f" ? "f" : "m";
+  const UI = { day: null, open: {}, busy: false, err: null, check: null, img: null, near: null };
+
+  // ---------- anonymous usage stats (same endpoint and rules as the main app) ----------
+  let UID = "anon";
+  try { UID = localStorage.getItem("kaikou-uid") || crypto.randomUUID(); localStorage.setItem("kaikou-uid", UID); } catch (e) {}
+  function track(ev, k, ok) {
+    if (location.protocol !== "https:") return;
+    try { if (localStorage.getItem("kaikou-notrack")) return; } catch (e) {}
+    try { navigator.sendBeacon("/api/e", new Blob([JSON.stringify({ ev, k, ok, uid: UID, role: "trip" })], { type: "application/json" })); } catch (e) {}
+  }
+
+  // ---------- data ----------
+  let A = null, AMAP = {};
+  const CITY = {};
+  const CITY_ZH = { bkk: "曼谷", cnx: "清迈", hkt: "普吉", pty: "芭提雅", kbv: "甲米", usm: "苏梅岛" };
+  async function loadCity(c) {
+    if (!CITY[c]) CITY[c] = await fetch(`data/trip/${c}.json`).then(r => r.json());
+    return CITY[c];
+  }
+  const planCities = () => T.plan ? [...new Set(T.plan.days.map(d => d.city))] : [];
+  function findRef(ref) {
+    if (!ref) return null;
+    for (const d of Object.values(CITY)) {
+      const k = ref[0] === "h" ? "hotels" : ref[0] === "p" ? "pois" : "products";
+      const it = d[k].find(x => x.id === ref);
+      if (it) return Object.assign({ kind0: k, city: d.city }, it);
+    }
+    return null;
+  }
+
+  // ---------- Thai text ----------
+  const TONES = { "̀": "t-low", "̂": "t-fall", "́": "t-high", "̌": "t-rise" };
+  const toneOf = syl => { const n = syl.normalize("NFD"); for (const k in TONES) if (n.includes(k)) return TONES[k]; return "t-mid"; };
+  const toneHTML = rom => String(rom).split(/([\s-]+)/).map(p => /^[\s-]+$/.test(p) || !p ? esc(p) : `<span class="${toneOf(p)}">${esc(p)}</span>`).join("");
+  const resolve = t => t.map(x => x.length === 1 ? [...A.particles[G()][x[0]], 1] : x);
+  const PH = new Map(); // key -> phrase {id?, zh, t}
+  function phrase(id) { const p = A.phrases[id]; return p ? { id, zh: p.zh, t: resolve(p.t) } : null; }
+  function phraseHTML(p, ai) {
+    const key = p.id || "ai" + PH.size;
+    PH.set(key, p);
+    return `<div class="phrase">
+      <div class="toks">${p.t.map(x => `<span class="${x[3] ? "particle" : ""}" title="${esc(x[2])}">${esc(x[0])}</span>`).join("")}</div>
+      <div class="rom">${toneHTML(p.t.map(x => x[1]).join(" "))}</div>
+      <div class="zh">${esc(p.zh)}${ai ? ' <i class="ai">AI 生成</i>' : ""}</div>
+      <div class="acts"><button class="btn" data-act="play" data-k="${esc(key)}">▶ 听</button><button class="btn primary" data-act="show" data-k="${esc(key)}">给对方看</button></div>
+    </div>`;
+  }
+  const textOf = p => p.t.map(x => x[0]).join("");
+
+  // ---------- audio: pre-recorded clips first, the browser's Thai voice as fallback ----------
+  const player = new Audio();
+  function play(p) {
+    try { speechSynthesis.cancel(); } catch (e) {}
+    player.pause();
+    const file = p.id && AMAP[`trip|${p.id}|${G()}`];
+    const voice = () => { if (window.speechSynthesis) { const u = new SpeechSynthesisUtterance(textOf(p)); u.lang = "th-TH"; u.rate = .85; speechSynthesis.speak(u); } };
+    if (!file) return voice();
+    player.onerror = voice;
+    player.src = "audio/" + file + "?v=2"; // v=2: skips edge copies cached while some clips were missing
+    player.play().catch(e => { if (e.name !== "NotAllowedError" && e.name !== "AbortError") voice(); });
+  }
+
+  // ---------- overlays ----------
+  let toastT = null;
+  function toast(msg) {
+    let el = $(".toast"); if (!el) { el = document.createElement("div"); el.className = "toast"; el.setAttribute("role", "status"); document.body.appendChild(el); }
+    el.textContent = msg; el.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => { el.hidden = true; }, 3200);
+  }
+  function modal(html) {
+    closeModal();
+    const m = document.createElement("div");
+    m.className = "modal"; m.setAttribute("role", "dialog"); m.setAttribute("aria-modal", "true");
+    m.innerHTML = `<button class="x" data-act="close" aria-label="关闭">×</button><div class="inner">${html}</div>`;
+    document.body.appendChild(m); document.body.style.overflow = "hidden";
+    m.querySelector(".x").focus();
+  }
+  function closeModal() { const m = $(".modal"); if (m) m.remove(); document.body.style.overflow = ""; }
+  // The full-screen card keeps its own phrase: re-rendering the page underneath clears PH.
+  let MP = null;
+  function showPhrase(p) {
+    MP = p;
+    modal(`<div class="th-big">${esc(textOf(p))}</div><div class="mid">${esc(p.zh)}</div>
+      <div class="row"><button class="btn big" data-act="playm">▶ 读给对方听</button></div>
+      <p class="sub">把手机屏幕转给对方看</p>`);
+  }
+  const gmap = it => `https://www.google.com/maps/search/?api=1&query=${it.lat},${it.lng}`;
+  function driverCard(it) {
+    const p = phrase(it.kind0 === "hotels" ? "go_hotel" : "take_me");
+    MP = p;
+    modal(`<div class="th-big">${esc(textOf(p))}</div>
+      <div class="mid">${esc(it.name || it.title)}</div>
+      ${it.address ? `<div class="addr">${esc(it.address)}</div>` : ""}
+      ${it.lat ? `<a class="btn navy big" href="${gmap(it)}" target="_blank" rel="noopener">在地图上给司机看位置</a>` : ""}
+      <div class="row"><button class="btn" data-act="playm">▶ 读给司机听</button></div>
+      <p class="sub">${esc(p.zh)}。地图定位最稳：司机看得懂，也不会有翻译错的问题。</p>`);
+    track("trip_card", it.kind0 === "hotels" ? "hotel" : "poi");
+  }
+
+  // ---------- location ----------
+  const dist = (a, b) => { const R = 6371, r = x => x * Math.PI / 180; const dLat = r(b.lat - a.lat), dLng = r(b.lng - a.lng);
+    const h = Math.sin(dLat / 2) ** 2 + Math.cos(r(a.lat)) * Math.cos(r(b.lat)) * Math.sin(dLng / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h)); };
+  const where = () => new Promise((res, rej) => {
+    if (!navigator.geolocation) return rej(new Error("这个浏览器不支持定位"));
+    navigator.geolocation.getCurrentPosition(p => res({ lat: p.coords.latitude, lng: p.coords.longitude }),
+      () => rej(new Error("没拿到定位：请在浏览器里允许定位")), { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 });
+  });
+
+  // ---------- trip timing ----------
+  function dayInfo() {
+    const n = T.plan.days.length;
+    if (T.intent && T.intent.start) {
+      const s = new Date(T.intent.start + "T00:00:00").getTime();
+      const diff = Math.floor((Date.now() - s) / DAY);
+      if (diff >= 0 && diff < n) return { idx: diff, live: true, before: false };
+      if (diff < 0) return { idx: 0, live: false, before: true, inDays: -diff };
+    }
+    return { idx: 0, live: false, before: false };
+  }
+  function dateOf(i) {
+    if (!T.intent || !T.intent.start) return "";
+    const d = new Date(new Date(T.intent.start + "T00:00:00").getTime() + i * DAY);
+    return `${d.getMonth() + 1}月${d.getDate()}日 周${"日一二三四五六"[d.getDay()]}`;
+  }
+  const mins = t => { const m = /^(\d\d):(\d\d)$/.exec(t || ""); return m ? +m[1] * 60 + +m[2] : null; };
+  function currentIdx(day) {
+    const now = new Date(), n = now.getHours() * 60 + now.getMinutes();
+    let cur = 0;
+    day.items.forEach((it, i) => { const m = mins(it.time); if (m != null && m <= n + 30) cur = i; });
+    return cur;
+  }
+
+  // ---------- views ----------
+  const sticker = (name, cls = "") => `<img class="stk ${cls}" src="img/stk/${name}.webp" alt="" aria-hidden="true" decoding="async">`;
+  const segG = () => `<span class="seg" role="group" aria-label="我是"><button data-act="g" data-g="m" aria-pressed="${G() === "m"}">男生 ครับ</button><button data-act="g" data-g="f" aria-pressed="${G() === "f"}">女生 ค่ะ</button></span>`;
+  const EXAMPLES = [
+    "11月20号从上海出发，曼谷 4 晚，两个人，喜欢寺庙和夜市",
+    "带爸妈去清迈 3 晚，节奏慢一点",
+    "曼谷 2 晚 + 芭提雅 2 晚，朋友四个人，想看海和夜生活",
+  ];
+  const STEPS = ["理解你的行程", "从飞猪挑选酒店、景点和接机", "给每一站配上泰语和防坑提醒"];
+
+  function viewHome() {
+    const tripCard = T.plan ? (() => {
+      const di = dayInfo(), day = T.plan.days[di.idx], it = day.items[di.live ? currentIdx(day) : 0];
+      return `<a class="tool mytrip" href="#/plan">${sticker("tuktuk")}<b>我的行程：${esc(T.plan.title)}</b>
+        <small>${di.live ? `今天第 ${di.idx + 1} 天 · 现在：${esc(it.time)} ${esc(it.title)}` : di.before ? `还有 ${di.inDays} 天出发 · 先看看每一站要说的泰语` : `${T.plan.days.length} 天 · 点开看每一站的泰语和防坑提醒`}</small></a>`;
+    })() : "";
+    return `
+      <header class="hero">
+        <h1>安心游泰国<span class="th">เที่ยวไทยสบายใจ</span></h1>
+        <p class="hand slogan">能开口，<br>就不用靠中间人</p>
+        <div class="collage">${sticker("temple", "s1")}${sticker("tuktuk", "s2")}${sticker("passport", "s3")}</div>
+      </header>
+      <section class="panel tape truth">
+        <h2>泰国旅游其实很安全</h2>
+        <ul>
+          <li>出事的主要是信了<b>「高薪招聘」</b>、被<b>网友约去边境</b>、报了<b>零元团</b>的人</li>
+          <li>真正要防的是<b>主动找上门、给你好处的陌生人</b></li>
+          <li>会几句泰语，直接跟泰国人打交道，就不用靠中间人</li>
+        </ul>
+        <a class="btn more" href="#/guide">看完整攻略：哪些情况要马上停下</a>
+      </section>
+      ${geoHTML()}
+      ${tripCard}
+      <section class="panel composer" id="composer">
+        <h2>${T.plan ? "重新规划一趟" : "说说你的泰国行程"}</h2>
+        <p class="muted small">一句话就行。AI 从飞猪真实的酒店、景点、接机里挑选，排好每一天，再给每一站配上要说的泰语和防坑提醒。目前支持曼谷、清迈、普吉、芭提雅、甲米、苏梅岛。</p>
+        ${UI.busy ? `<div class="loading" id="loading"><div class="bar"><i></i></div>${STEPS.map((s, i) => `<div class="step" data-step="${i}">${s}</div>`).join("")}</div>` : `
+        <textarea id="ask" rows="3" maxlength="300" placeholder="比如：11月20号从上海出发，曼谷 4 晚，两个人，喜欢寺庙和夜市">${esc(T.text || "")}</textarea>
+        <div class="row">${EXAMPLES.map(x => `<button class="ex" data-act="ex">${esc(x)}</button>`).join("")}</div>
+        ${UI.err ? `<div class="err">${esc(UI.err)}</div>` : ""}
+        <div class="row"><button class="btn primary big" data-act="plan">生成我的行程</button><button class="btn" data-act="sample">先看一个示例</button></div>`}
+      </section>
+      <section class="tools">
+        <a class="tool" href="#/talk">${sticker("wai")}<b>实时同传</b><small>你说中文手机说泰语，对方说泰语屏幕出中文</small></a>
+        <a class="tool" href="#/read">${sticker("padthai")}<b>拍一下看懂</b><small>菜单、路牌、告示看不懂，拍一张就知道是什么、怎么读</small></a>
+        <a class="tool" href="#/check">${sticker("clipboard")}<b>这靠谱吗？</b><small>陌生人发来的工作、低价团、街头报价，截图问一下</small></a>
+        <a class="tool red" href="#/sos">${sticker("passport")}<b>一键求助</b><small>泰文求助卡、报警急救电话、最近的使领馆</small></a>
+        <a class="tool" href="#/guide">${sticker("lotus")}<b>出发前攻略</b><small>30 天免签、入境卡、电子烟，2026 年的新规定</small></a>
+      </section>
+      <footer class="foot">
+        <div class="row" style="justify-content:center">我是 ${segG()}</div>
+        <p>酒店、景点、接机等数据来自飞猪 · AI 由阿里云百炼提供 · 安全信息附来源</p>
+        <p><a href="./">← 回到开口泰，系统学泰语</a></p>
+      </footer>`;
+  }
+
+  function placeHTML(it) {
+    if (!it) return "";
+    const name = it.name || it.title;
+    const sub = it.kind0 === "hotels" ? [it.star, it.area, it.score && `评分 ${it.score}`].filter(Boolean).join(" · ")
+      : it.kind0 === "pois" ? [it.cat, it.rank].filter(Boolean).join(" · ") + (it.desc ? `<br>${esc(it.desc)}` : "")
+      : "飞猪可订";
+    return `<div class="place ${it.pic ? "" : "noimg"}">
+      ${it.pic ? `<img src="${esc(it.pic)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : ""}
+      <div class="info"><div class="name">${esc(name)}</div><div class="sub">${it.kind0 === "pois" ? sub : esc(sub)}</div>
+        <div class="acts">
+          <a class="btn primary" href="${esc(it.url)}" target="_blank" rel="noopener">在飞猪查看 / 预订</a>
+          ${it.lat ? `<button class="btn" data-act="driver" data-ref="${esc(it.id)}">${it.kind0 === "hotels" ? "回酒店卡" : "司机卡"}</button>` : ""}
+        </div></div></div>`;
+  }
+
+  function stopHTML(day, di, it, ii, cur) {
+    const spot = A.spots[it.type] || A.spots.sight;
+    const key = `${di}-${ii}`;
+    const open = UI.open[key] != null ? UI.open[key] : ii === Math.max(cur, 0);
+    const ref = findRef(it.ref);
+    const extra = T.extra[key];
+    return `<li class="stop ${ii === cur ? "cur" : ""}" id="s-${key}">
+      <span class="dot"></span>
+      <button class="stop-head" data-act="toggle" data-k="${key}" aria-expanded="${open}">
+        <span class="time">${esc(it.time)}</span><span class="ttl">${esc(it.title)}</span><span class="type">${ii === cur ? "现在" : esc(spot.label)}</span>
+      </button>
+      ${open ? `<div class="stop-body">
+        ${placeHTML(ref)}
+        ${it.note ? `<p class="pnote">${esc(it.note)}</p>` : ""}
+        ${spot.tips.length ? `<div class="warn"><h4>这里常见的坑</h4><ul>${spot.tips.map(t => `<li><b>${esc(t.trap)}</b><span>→ ${esc(t.do)}</span></li>`).join("")}</ul></div>` : ""}
+        <div class="sec-h">在这里要说的泰语</div>
+        <div class="phrases">${spot.say.map(id => phrase(id)).filter(Boolean).map(p => phraseHTML(p)).join("")}
+          ${extra && extra.say ? extra.say.map(p => phraseHTML({ zh: p.zh, t: p.t }, true)).join("") : ""}</div>
+        ${extra && extra.err ? `<div class="err">${esc(extra.err)}</div>` : ""}
+        <div class="row"><button class="btn" data-act="more" data-k="${key}" ${extra && extra.busy ? "disabled" : ""}>${extra && extra.busy ? "正在想…" : "再来几句（AI 现写）"}</button><a class="btn" href="#/talk">卡片上没有？开同传</a>${it.type === "food" || it.type === "market" ? `<a class="btn" href="#/read">拍菜单看懂</a>` : ""}</div>
+      </div>` : ""}
+    </li>`;
+  }
+
+  function viewPlan() {
+    if (!T.plan) { location.hash = "#/"; return ""; }
+    const di = dayInfo();
+    if (UI.day == null || UI.day >= T.plan.days.length) UI.day = di.idx;
+    const day = T.plan.days[UI.day];
+    const cur = di.live && UI.day === di.idx ? currentIdx(day) : -1;
+    const hotelId = T.plan.hotels && T.plan.hotels[day.city];
+    return `
+      <div class="topbar"><a class="back" href="#/">‹ 首页</a><h2>${esc(T.plan.title)}</h2>
+        <div class="right"><button class="btn" data-act="report">平安报备</button></div></div>
+      <section class="plan-head">
+        <p class="muted">${esc(T.plan.summary)}</p>
+        ${T.notice ? `<div class="err">${esc(T.notice)}</div>` : ""}
+        <div class="row">${T.intent && T.intent.stay ? T.intent.stay.map(s => `<span class="chip">${CITY_ZH[s.c]} <b>${s.nights}</b> 晚</span>`).join("") : ""}
+          ${T.intent && T.intent.start ? `<span class="chip">${esc(T.intent.start)} 出发</span>` : ""}
+          ${T.meta ? `<span class="chip">飞猪数据 ${esc(T.meta.fetchedAt)}</span>` : ""}</div>
+        ${di.live ? `<div class="live">今天是行程第 ${di.idx + 1} 天，红点是现在这一站。</div>`
+          : di.before ? `<div class="live pre">还有 ${di.inDays} 天出发。先把每一站的泰语听一遍，到了打开就是当天的安排。</div>`
+          : `<div class="live pre">告诉 AI 出发日期，到了泰国打开就会自动停在当天、当前这一站。</div>`}
+        <div class="row">
+          <button class="btn navy" data-act="near">我在哪一站？</button>
+          ${hotelId ? `<button class="btn" data-act="driver" data-ref="${esc(hotelId)}">回酒店卡</button>` : ""}
+          <span class="who-am"><span class="muted small">我是</span>${segG()}</span>
+        </div>
+        ${geoHTML()}
+      </section>
+      <div class="days" role="group" aria-label="选择第几天">${T.plan.days.map((d, i) => `<button data-act="day" data-i="${i}" aria-pressed="${i === UI.day}">
+        <span>第 ${d.d} 天${di.live && i === di.idx ? " · 今天" : ""}</span><b>${esc(CITY_ZH[d.city] || "")} ${esc(d.theme)}</b>${dateOf(i) ? `<span class="now">${dateOf(i)}</span>` : ""}</button>`).join("")}</div>
+      <ol class="stops">${day.items.map((it, ii) => stopHTML(day, UI.day, it, ii, cur)).join("")}</ol>
+      <div class="legend"><span>读音颜色：</span><span class="t-mid">中平</span><span class="t-low">低</span><span class="t-fall">降</span><span class="t-high">高</span><span class="t-rise">升</span></div>
+      <p class="muted small">酒店、景点和可订服务都是飞猪上的真实商品（${esc((T.meta && T.meta.source) || "飞猪")}），价格和库存以飞猪页面为准。泰语句子来自开口泰课程，标「AI 生成」的是现写的。</p>`;
+  }
+
+  function viewGuide() {
+    const g = A.guide;
+    const sec = s => `<section class="gsec" id="g-${s.id}">
+      <h2>${esc(s.h)}</h2>
+      ${s.lead ? `<p>${esc(s.lead)}</p>` : ""}
+      ${s.lead && s.list ? `<ul>${s.list.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+      ${s.quote ? `<div class="quote"><p>「${esc(s.quote)}」</p><span class="who">—— ${esc(s.who)}</span></div>` : ""}
+      ${!s.lead && s.list ? `<ul>${s.list.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+      ${s.rows ? `<div class="kv">${s.rows.map(r => `<div><b>${esc(r[0])}</b><span>${esc(r[1])}</span></div>`).join("")}</div>` : ""}
+      ${s.quoteList ? `<div class="quote"><div class="qlist">${s.quoteList.map(q => `<div><b>${esc(q[0])}</b><span>${esc(q[1])}</span></div>`).join("")}</div><span class="who">—— ${esc(s.who)}</span></div>` : ""}
+      ${s.note ? `<p class="note">${esc(s.note)}</p>` : ""}
+      ${s.say ? `<div class="phrases">${s.say.map(id => phraseHTML(phrase(id))).join("")}</div>` : ""}
+    </section>`;
+    return `
+      <div class="topbar"><a class="back" href="#/">‹ 首页</a><h2>出发前攻略</h2></div>
+      ${g.map(sec).join("")}
+      <section class="gsec"><h2>拿不准的时候</h2>
+        <div class="row"><a class="btn primary" href="#/check">截图问「这靠谱吗」</a><a class="btn" href="#/sos">看求助卡和电话</a></div></section>
+      <section class="sources"><b>信息来源（截至 ${esc(A.updated)}）</b><ol>${A.sources.map(s => `<li><a href="${esc(s.u)}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`).join("")}</ol>
+        <p>政策会变，出发前请以使领馆和泰国官方最新公告为准。</p></section>`;
+  }
+
+  const CHECK_EX = [
+    "泰国招直播主播，月薪3万，包机票包吃住，不用经验，免签过去先上班，签证到了再办",
+    "大皇宫门口有人说今天下午关门，要带我们坐 20 泰铢的嘟嘟车去别的寺庙",
+    "网上认识两个月的朋友说请我去泰国玩，机票他出，到了带我去湄索看看",
+    "夜市海鲜摊，大虾按两算，老板说一共 2800 泰铢",
+  ];
+  const LV = { high: "高风险", mid: "要小心", low: "看起来正常", unknown: "信息不够" };
+  function viewCheck() {
+    const r = UI.check;
+    return `
+      <div class="topbar"><a class="back" href="#/">‹ 首页</a><h2>这靠谱吗？</h2></div>
+      <section class="panel">
+        <p>陌生人发来的工作、交友邀约、低价团、街头报价……<b>截图或者粘贴进来</b>，AI 对照使馆提醒和常见骗局帮你看一眼。</p>
+        <textarea id="ctext" rows="4" maxlength="1500" placeholder="粘贴聊天内容、招聘信息，或者说说遇到了什么">${esc(UI.ctext || "")}</textarea>
+        <div class="row">${CHECK_EX.map(x => `<button class="ex" data-act="cex">${esc(x)}</button>`).join("")}</div>
+        <div class="pick">
+          <label class="btn"><input type="file" id="cimg" accept="image/*" hidden>上传截图 / 拍照</label>
+          ${UI.img ? `<img src="${UI.img}" alt="已选的图片"><button class="btn" data-act="noimg">去掉图片</button>` : ""}
+        </div>
+        <div class="row"><button class="btn primary big" data-act="check" ${UI.busy ? "disabled" : ""}>${UI.busy ? "正在看…" : "帮我看看"}</button></div>
+        ${UI.err ? `<div class="err">${esc(UI.err)}</div>` : ""}
+      </section>
+      ${r ? `<section class="result ${r.level}">
+        <span class="lv">${LV[r.level] || ""}</span>
+        <h3>${esc(r.title)}</h3>
+        ${r.reasons.length ? `<div><div class="sec-h">看到的信号</div><ul>${r.reasons.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}
+        ${r.advice.length ? `<div><div class="sec-h">现在怎么做</div><ul>${r.advice.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}
+        ${r.say && r.say.length ? `<div class="phrases">${r.say.map(id => phrase(id)).filter(Boolean).map(p => phraseHTML(p)).join("")}</div>` : ""}
+        ${r.ocr ? `<details><summary>AI 从图片里读到的文字</summary><pre>${esc(r.ocr)}</pre></details>` : ""}
+        <p class="fine">AI 判断只供参考。拿不准就别去、别转钱，打旅游警察 1155 或联系使领馆（见「求助」）。</p>
+      </section>` : ""}`;
+  }
+
+  // ---------- scam hotspot alerts: watch the position while the page is open ----------
+  const GEO = { id: null, timer: null };
+  function hotspotAlert(h, demo) {
+    T.alerted = T.alerted || {}; if (!demo) { T.alerted[h.id] = Date.now(); save(); }
+    try { navigator.vibrate && navigator.vibrate([200, 100, 200]); } catch (e) {}
+    const says = h.say.map(phrase).filter(Boolean);
+    MP = says[0] || null;
+    modal(`<div class="alert-k">${demo ? "演示 · " : ""}你到了「${esc(h.name)}」</div>
+      <div class="mid">这里常见的坑</div>
+      <p class="addr">${esc(h.trap)}</p>
+      <p class="sub">→ ${esc(h.do)}</p>
+      ${says.map(p => `<div class="th-mid">${esc(textOf(p))}</div><div class="sub">${esc(p.zh)}</div>`).join("")}
+      <div class="row">${MP ? `<button class="btn big" data-act="playm">▶ 读出来</button>` : ""}<button class="btn primary big" data-act="close">知道了</button></div>`);
+    track("trip_alert", demo ? "demo" : h.id);
+  }
+  function onPos(pos) {
+    const me = { lat: pos.coords.latitude, lng: pos.coords.longitude }, now = Date.now();
+    const h = A.hotspots.find(x => dist(me, x) * 1000 <= x.r && !(T.alerted && now - (T.alerted[x.id] || 0) < 6 * 3600e3));
+    if (h && !$(".modal")) hotspotAlert(h);
+  }
+  function watchOn() {
+    if (!navigator.geolocation) return toast("这个浏览器不支持定位");
+    if (GEO.id == null) GEO.id = navigator.geolocation.watchPosition(onPos, err => {
+      // Only a refusal stops the alerts; timeouts and weak signal indoors are normal, polling carries on.
+      if (err.code === 1) { toast("没拿到定位权限：请在浏览器设置里允许定位"); watchOff(); }
+    }, { enableHighAccuracy: true, maximumAge: 30000, timeout: 30000 });
+    // Some phones throttle watchPosition while walking slowly; a 30-second poll keeps the alert timely.
+    if (!GEO.timer) GEO.timer = setInterval(() => navigator.geolocation.getCurrentPosition(onPos, () => {}, { enableHighAccuracy: true, maximumAge: 0, timeout: 20000 }), 30000);
+    T.watch = true; save(); render();
+  }
+  function watchOff() { if (GEO.id != null) navigator.geolocation.clearWatch(GEO.id); clearInterval(GEO.timer); GEO.id = GEO.timer = null; T.watch = false; save(); render(); }
+  const geoHTML = () => `<div class="geo ${T.watch ? "on" : ""}">
+      <b>${T.watch ? "已开启：到了骗局高发区会提醒你" : "到了骗局高发区自动提醒"}</b>
+      <small>开着这个页面时，走到大皇宫、考山路、机场、芭东海滩、芭提雅海滩等地方，会弹出这里常见的坑和要说的泰语。</small>
+      <div class="row"><button class="btn ${T.watch ? "" : "primary"}" data-act="geo">${T.watch ? "关闭提醒" : "开启提醒"}</button>
+        <button class="btn" data-act="geodemo">演示：模拟走到大皇宫门口</button></div></div>`;
+
+  function speakTh(text) {
+    if (!window.speechSynthesis) return;
+    const u = new SpeechSynthesisUtterance(text); u.lang = "th-TH"; u.rate = .85; speechSynthesis.cancel(); speechSynthesis.speak(u);
+  }
+  const orderText = it => `เอา${it.orig.replace(/\s*[(（].*?[)）]\s*/g, "").trim()} ${G() === "f" ? "ค่ะ" : "ครับ"}`;
+  function viewRead() {
+    const r = UI.read;
+    return `
+      <div class="topbar"><a class="back" href="#/">‹ 首页</a><h2>拍一下看懂</h2></div>
+      <section class="panel">
+        <p>菜单、路牌、告示、价目表看不懂？<b>拍一张</b>，阿里云百炼先把图里的字照抄下来，再逐行告诉你是什么意思、怎么读、要注意什么。</p>
+        <div class="pick">
+          <label class="btn primary big"><input type="file" id="rimg" accept="image/*" capture="environment" hidden>${UI.rimg ? "换一张" : "拍照 / 选照片"}</label>
+          ${UI.rimg ? `<img src="${UI.rimg}" alt="已选的照片">` : ""}
+          ${UI.rimg && !UI.rbusy ? `<button class="btn" data-act="readgo">再看一次</button>` : ""}
+        </div>
+        ${UI.rbusy ? `<div class="loading"><div class="bar"><i></i></div><div class="step on">正在照抄图里的字，再逐行解释…</div></div>` : ""}
+        ${UI.rerr ? `<div class="err">${esc(UI.rerr)}</div>` : ""}
+      </section>
+      ${r ? `<section class="gsec">
+        <h2>${esc(r.kind)}：${esc(r.summary)}</h2>
+        ${r.warn ? `<p class="rwarn">注意：${esc(r.warn)}</p>` : ""}
+        <div class="ritems">${r.items.map((it, i) => `<div class="ritem">
+          <span class="orig">${esc(it.orig)}</span>
+          ${it.rom ? `<span class="rom">${toneHTML(it.rom)}</span>` : ""}
+          <span class="zh">${esc(it.zh)}</span>
+          ${it.note || it.price ? `<span class="meta">${it.price ? `<b>${esc(it.price)}</b>` : ""}${it.note ? `<i>${esc(it.note)}</i>` : ""}</span>` : ""}
+          <div class="acts">${/[\u0E00-\u0E7F]/.test(it.orig) ? `<button class="btn" data-act="readsay" data-i="${i}">▶ 读</button>` : ""}
+            ${r.kind === "菜单" || r.kind === "价目表" ? `<button class="btn primary" data-act="order" data-i="${i}">我要这个</button>` : ""}</div>
+        </div>`).join("")}</div>
+        <details><summary>AI 从照片里照抄的原文</summary><pre>${esc(r.ocr)}</pre></details>
+        <p class="muted small">只根据照片里的字解释，看不清的不会乱猜。价格以店家为准。</p>
+      </section>` : ""}`;
+  }
+  async function runRead() {
+    if (!UI.rimg) return;
+    UI.rbusy = true; UI.rerr = null; UI.read = null; render();
+    try { UI.read = await post("/api/trip/read", { image: UI.rimg }); track("trip_read", UI.read.kind, true); }
+    catch (e) { UI.rerr = e.message; track("trip_read", "", false); }
+    UI.rbusy = false; render();
+    const g = document.querySelector(".gsec h2"); if (g) g.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function viewSOS() {
+    const near = UI.near;
+    const cons = A.sos.consulates.map(c => Object.assign({ d: near ? dist(near, c) : null }, c));
+    const nearest = near ? cons.reduce((a, b) => a.d < b.d ? a : b) : null;
+    return `
+      <div class="topbar"><a class="back" href="#/">‹ 首页</a><h2>一键求助</h2><div class="right">${segG()}</div></div>
+      <p class="muted">点一下，泰文大字全屏，给身边的泰国人看，也可以直接放声音。要说的话不在这里，就用 <a href="#/talk">实时同传</a>。</p>
+      <div class="sosgrid">${A.sos.say.map((id, i) => { const p = phrase(id); PH.set(id, p);
+        return `<button class="sosbtn ${i > 3 ? "calm" : ""}" data-act="show" data-k="${id}"><span class="thai">${esc(textOf(p))}</span><small>${esc(p.zh)}</small></button>`; }).join("")}</div>
+      <section class="gsec"><h2>电话</h2><div class="tels">
+        ${A.sos.numbers.map(n => `<a class="tel" href="tel:${esc(n.n)}"><b>${esc(n.show || n.n)}</b><span>${esc(n.zh)}</span><span class="go">拨打</span></a>`).join("")}
+      </div></section>
+      <section class="gsec"><h2>中国驻泰使领馆（领事保护）</h2>
+        <div class="row"><button class="btn navy" data-act="nearcons">按我的位置找最近的</button>
+          ${nearest ? `<span class="muted small">负责你这一片的：${esc(nearest.name)}，约 ${Math.round(nearest.d)} 公里</span>` : ""}</div>
+        <div class="tels">${cons.sort((a, b) => near ? a.d - b.d : 0).map(c => `<a class="tel ${nearest && c === nearest ? "near" : ""}" href="tel:${esc(c.tel)}"><span><b style="display:block;font-size:16px">${esc(c.name)}</b>${esc(c.area)} · ${esc(c.show)}</span><span class="go">拨打</span></a>`).join("")}</div>
+        <p class="muted small">${esc(A.sos.checked)}</p>
+      </section>
+      <section class="gsec"><h2>平安报备</h2>
+        <p class="muted small">把现在的位置和今天的安排发给家人。真正担心「泰国不安全」的，往往是家里人。</p>
+        <div class="row"><button class="btn primary" data-act="report">发给家人</button></div></section>`;
+  }
+
+  // ---------- live interpreter (百炼 qwen3.8 live translation through /api/trip/live) ----------
+  const TALK = { dir: null, hist: [], src: "", dst: "", status: "", err: null };
+  const LV2 = { ws: null, ctx: null, stream: null, proc: null, play: null, playT: 0, chunks: [] };
+  const b64 = bytes => { let s = ""; for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000)); return btoa(s); };
+  // Microphone float samples at the device rate → 16 kHz 16-bit PCM, which is what the model takes.
+  function toPCM16(f32, rate) {
+    const k = rate / 16000, n = Math.floor(f32.length / k), out = new Int16Array(n);
+    for (let i = 0; i < n; i++) {
+      const a = Math.floor(i * k), b = Math.min(f32.length, Math.floor((i + 1) * k));
+      let s = 0; for (let j = a; j < b; j++) s += f32[j];
+      const v = Math.max(-1, Math.min(1, s / Math.max(1, b - a)));
+      out[i] = v < 0 ? v * 0x8000 : v * 0x7fff;
+    }
+    return new Uint8Array(out.buffer);
+  }
+  // Thai speech comes back as 24 kHz PCM chunks; queue them back to back.
+  function playPCM(base64) {
+    const ctx = LV2.play; if (!ctx) return;
+    const bin = atob(base64), n = bin.length >> 1, buf = ctx.createBuffer(1, n, 24000), ch = buf.getChannelData(0);
+    for (let i = 0; i < n; i++) { let v = bin.charCodeAt(2 * i) | (bin.charCodeAt(2 * i + 1) << 8); if (v >= 0x8000) v -= 0x10000; ch[i] = v / 0x8000; }
+    const s = ctx.createBufferSource(); s.buffer = buf; s.connect(ctx.destination);
+    const at = Math.max(ctx.currentTime + .05, LV2.playT); s.start(at); LV2.playT = at + buf.duration;
+  }
+  function liveBox() {
+    const el = $("#livebox"); if (!el) return;
+    el.hidden = !(TALK.src || TALK.dst);
+    el.querySelector(".src").textContent = TALK.src;
+    el.querySelector(".dst").textContent = TALK.dst || "…";
+    const st = $("#talkstatus"); if (st) st.textContent = TALK.status;
+  }
+  async function startLive(dir) {
+    await stopLive(true);
+    TALK.dir = dir; TALK.err = null; TALK.src = TALK.dst = ""; LV2.chunks = []; TALK.status = "正在连接…"; render();
+    try {
+      LV2.play = LV2.play || new (window.AudioContext || window.webkitAudioContext)();
+      LV2.play.resume();
+      LV2.stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, channelCount: 1 } });
+    } catch (e) { TALK.dir = null; TALK.err = "需要麦克风权限：请在浏览器设置里允许这个网站使用麦克风"; render(); return; }
+    const ws = new WebSocket(`${location.protocol === "https:" ? "wss" : "ws"}://${location.host}/api/trip/live?to=${dir === "me" ? "th" : "zh"}`);
+    LV2.ws = ws;
+    ws.onmessage = ev => {
+      let j; try { j = JSON.parse(ev.data); } catch (e) { return; }
+      const t = j.type;
+      if (t === "session.updated") { TALK.status = dir === "me" ? "在听你说中文…说完停两秒" : "在听对方说泰语…说完停两秒"; liveBox(); startMic(ws); }
+      else if (t === "conversation.item.input_audio_transcription.delta") { TALK.src += j.delta || j.text || ""; liveBox(); }
+      else if (t === "conversation.item.input_audio_transcription.completed") { TALK.src = j.transcript || TALK.src; liveBox(); }
+      else if (t === "response.audio_transcript.delta" || t === "response.text.delta") { TALK.dst += j.delta || ""; liveBox(); }
+      else if (t === "response.audio.delta") { if (dir === "me") { playPCM(j.delta); LV2.chunks.push(j.delta); } }
+      else if (t === "response.done") {
+        if (TALK.dst.trim()) { TALK.hist.push({ dir, src: TALK.src.trim(), dst: TALK.dst.trim(), audio: LV2.chunks }); track("trip_live", dir); }
+        LV2.chunks = []; TALK.src = TALK.dst = ""; render(); const th = $(".thread"); if (th && th.lastElementChild) th.lastElementChild.scrollIntoView({ block: "end" });
+      }
+      else if (t === "error" || j.code) { TALK.err = "同传出错了：" + ((j.error && j.error.message) || j.message || "请再试一次"); stopLive(); }
+    };
+    ws.onclose = () => { if (LV2.ws === ws) stopLive(); };
+    ws.onerror = () => { TALK.err = "同传服务没连上，检查网络再试"; };
+  }
+  function startMic(ws) {
+    const ctx = LV2.ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const src = ctx.createMediaStreamSource(LV2.stream);
+    const proc = LV2.proc = ctx.createScriptProcessor(4096, 1, 1);
+    proc.onaudioprocess = e => {
+      if (ws.readyState !== 1) return;
+      // While the Thai reply is playing, send silence so the phone does not translate its own voice.
+      const speaking = LV2.play && LV2.play.currentTime < LV2.playT + .3;
+      const pcm = toPCM16(speaking ? new Float32Array(e.inputBuffer.length) : e.inputBuffer.getChannelData(0), ctx.sampleRate);
+      ws.send(JSON.stringify({ type: "input_audio_buffer.append", audio: b64(pcm) }));
+    };
+    src.connect(proc); proc.connect(ctx.destination);
+  }
+  async function stopLive(quiet) {
+    const ws = LV2.ws; LV2.ws = null;
+    if (ws) { try { if (ws.readyState === 1) ws.send(JSON.stringify({ type: "session.finish" })); ws.close(); } catch (e) {} }
+    try { LV2.proc && LV2.proc.disconnect(); } catch (e) {}
+    try { LV2.ctx && LV2.ctx.close(); } catch (e) {}
+    try { LV2.stream && LV2.stream.getTracks().forEach(t => t.stop()); } catch (e) {}
+    LV2.proc = LV2.ctx = LV2.stream = null;
+    if (TALK.dst.trim()) TALK.hist.push({ dir: TALK.dir, src: TALK.src.trim(), dst: TALK.dst.trim() });
+    TALK.dir = null; TALK.src = TALK.dst = ""; TALK.status = "";
+    if (!quiet && view === "talk") render();
+  }
+  function viewTalk() {
+    return `
+      <div class="topbar"><a class="back" href="#/">‹ 首页</a><h2>实时同传</h2></div>
+      <p class="muted">卡片上没有的话，就直接聊。按「我说中文」，手机会用泰语说出来；按「对方说泰语」，屏幕上出中文。每说完一句停两秒。</p>
+      ${TALK.err ? `<div class="err">${esc(TALK.err)}</div>` : ""}
+      <div class="thread">
+        ${TALK.hist.length || TALK.dir ? "" : `<div class="bub them"><span class="who2">示例</span><span class="src">ห้องน้ำอยู่ทางซ้ายค่ะ</span><span class="dst">洗手间在左边。</span></div>
+          <div class="bub me"><span class="who2">示例</span><span class="src">我们想去大皇宫，打车大概多少钱？</span><span class="dst th">เราอยากไปพระบรมมหาราชวัง นั่งแท็กซี่ไปประมาณเท่าไหร่คะ</span></div>`}
+        ${TALK.hist.map((h, i) => `<div class="bub ${h.dir === "me" ? "me" : "them"}">
+          <span class="who2">${h.dir === "me" ? "我说" : "对方说"}</span>
+          ${h.src ? `<span class="src">${esc(h.src)}</span>` : ""}
+          <span class="dst ${h.dir === "me" ? "th" : ""}">${esc(h.dst)}</span>
+          ${h.dir === "me" ? `<div class="acts"><button class="btn" data-act="talksay" data-i="${i}">▶ 再读一遍</button><button class="btn primary" data-act="talkshow" data-i="${i}">给对方看</button></div>` : ""}
+        </div>`).join("")}
+        <div class="bub ${TALK.dir === "them" ? "them" : "me"} live" id="livebox" ${TALK.src || TALK.dst ? "" : "hidden"}><span class="src">${esc(TALK.src)}</span><span class="dst ${TALK.dir === "me" ? "th" : ""}">${esc(TALK.dst || "…")}</span></div>
+        <p class="status" id="talkstatus">${esc(TALK.status)}</p>
+        <p class="muted small">由阿里云百炼 qwen3.8 实时同传提供。对方说完泰语后，翻译可能要等几秒。</p>
+      </div>
+      <div class="talkbar"><div class="in">
+        <button class="talkbtn ${TALK.dir === "me" ? "on" : ""}" data-act="live" data-dir="me"><b>${TALK.dir === "me" ? "停止" : "我说中文"}</b><small>→ 泰语语音</small></button>
+        <button class="talkbtn them ${TALK.dir === "them" ? "on" : ""}" data-act="live" data-dir="them"><b>${TALK.dir === "them" ? "停止" : "对方说泰语"}</b><small>→ 中文字幕</small></button>
+      </div></div>`;
+  }
+
+  // ---------- render & routing ----------
+  let view = "home";
+  function render() {
+    PH.clear();
+    const off = navigator.onLine === false ? `<p class="offline">现在没网：行程、求助卡、回酒店卡和泰语句子都能用；生成行程、这靠谱吗、拍照和同传要联网。</p>` : "";
+    app.innerHTML = off + (view === "plan" ? viewPlan() : view === "guide" ? viewGuide() : view === "check" ? viewCheck() : view === "sos" ? viewSOS() : view === "talk" ? viewTalk() : view === "read" ? viewRead() : viewHome());
+    document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", a.dataset.nav === view || (view === "plan" && a.dataset.nav === "home") ? "page" : "false"));
+  }
+  async function route() {
+    const h = location.hash.replace(/^#\/?/, "");
+    const v = h.split("/")[0] || "home";
+    view = ["home", "plan", "guide", "check", "sos", "talk", "read"].includes(v) ? v : "home";
+    UI.err = null;
+    if (view !== "talk" && TALK.dir) stopLive(true);
+    if (view === "plan" && T.plan) await Promise.all(planCities().map(loadCity));
+    render();
+    window.scrollTo(0, 0);
+    if (view === "plan") { const c = $(".stop.cur"); if (c) c.scrollIntoView({ block: "center" }); }
+  }
+
+  // ---------- actions ----------
+  async function post(url, body) {
+    let r;
+    try { r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }); }
+    catch (e) { throw new Error(navigator.onLine === false ? "现在没网，这个功能要联网才能用" : "网络有点问题，再试一次"); }
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(j.error || "网络有点问题，再试一次");
+    return j;
+  }
+  async function makePlan(text) {
+    T.text = text; UI.busy = true; UI.err = null; render();
+    let step = 0;
+    const tick = () => { document.querySelectorAll("#loading .step").forEach((el, i) => { el.className = "step" + (i < step ? " done" : i === step ? " on" : ""); }); };
+    tick();
+    const timer = setInterval(() => { if (step < STEPS.length - 1) { step++; tick(); } }, 4500);
+    try {
+      const j = await post("/api/trip/plan", { text });
+      T.plan = j.plan; T.intent = j.intent; T.meta = j.data; T.notice = j.notice || null; T.extra = {}; UI.day = null; UI.open = {};
+      save(); track("trip_plan", "", true);
+      location.hash = "#/plan";
+    } catch (e) {
+      UI.err = e.message; track("trip_plan", "", false);
+    } finally { clearInterval(timer); UI.busy = false; if (view === "home") render(); }
+  }
+  async function loadSample() {
+    const j = await fetch("data/trip/sample.json").then(r => r.json());
+    T.plan = j.plan; T.intent = j.intent; T.meta = j.data; T.notice = null; T.extra = {}; T.text = j.text || ""; UI.day = null; UI.open = {};
+    save(); location.hash = "#/plan";
+  }
+  async function more(key) {
+    const [di, ii] = key.split("-").map(Number);
+    const it = T.plan.days[di].items[ii], ref = findRef(it.ref);
+    T.extra[key] = { busy: true }; render();
+    try {
+      const j = await post("/api/trip/say", { title: (ref && (ref.name || ref.title)) || it.title, type: (A.spots[it.type] || {}).label, note: it.note, g: G() });
+      T.extra[key] = { say: j.say };
+    } catch (e) { T.extra[key] = { err: e.message }; }
+    save(); render();
+  }
+  async function runCheck() {
+    const text = ($("#ctext") || {}).value || "";
+    UI.ctext = text;
+    if (!text.trim() && !UI.img) { UI.err = "贴一段文字或上传一张截图"; render(); return; }
+    UI.busy = true; UI.err = null; UI.check = null; render();
+    try { UI.check = await post("/api/trip/check", { text, image: UI.img }); track("trip_check", UI.check.level, true); }
+    catch (e) { UI.err = e.message; track("trip_check", "", false); }
+    UI.busy = false; render();
+    const res = $(".result"); if (res) res.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  function shrink(file) {
+    return new Promise((res, rej) => {
+      const img = new Image(), url = URL.createObjectURL(file);
+      img.onload = () => {
+        const k = Math.min(1, 1400 / Math.max(img.width, img.height));
+        const c = document.createElement("canvas"); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+        c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); URL.revokeObjectURL(url);
+        res(c.toDataURL("image/jpeg", .82));
+      };
+      img.onerror = () => rej(new Error("这张图打不开，换一张试试"));
+      img.src = url;
+    });
+  }
+  async function nearStop() {
+    toast("正在定位…");
+    try {
+      const me = await where();
+      let best = null;
+      T.plan.days.forEach((d, di) => d.items.forEach((it, ii) => { const r = findRef(it.ref); if (r && r.lat) { const km = dist(me, r); if (!best || km < best.km) best = { di, ii, km, it }; } }));
+      if (!best) return toast("行程里没有带定位的地点");
+      if (best.km > 1.5) return toast(`附近没有行程里的地点，最近的是「${best.it.title}」，约 ${best.km.toFixed(1)} 公里`);
+      UI.day = best.di; T.plan.days[best.di].items.forEach((_, i) => { UI.open[`${best.di}-${i}`] = i === best.ii; }); render();
+      const el = $(`#s-${best.di}-${best.ii}`); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      toast(`你在「${best.it.title}」附近，看看这里的提醒和要说的话`);
+    } catch (e) { toast(e.message); }
+  }
+  async function report() {
+    let me = null;
+    try { toast("正在定位…"); me = await where(); } catch (e) { /* send without location */ }
+    const now = new Date(), hm = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
+    let place = "", today = "";
+    if (T.plan) {
+      await Promise.all(planCities().map(loadCity));
+      const di = dayInfo();
+      let idx = di.live ? di.idx : (UI.day != null ? UI.day : 0);
+      const near = [];
+      if (me) T.plan.days.forEach((d, i) => d.items.forEach(it => { const r = findRef(it.ref); if (r && r.lat) near.push({ i, it, km: dist(me, r) }); }));
+      const best = near.filter(x => !di.live || x.i === di.idx).sort((a, b) => a.km - b.km)[0];
+      if (best && best.km < 1.5) { place = best.it.title; if (!di.live) idx = best.i; }
+      const day = T.plan.days[idx];
+      today = day.items.map(it => `${it.time} ${it.title}`).join("，");
+      if (!place && T.plan.hotels) { const h = findRef(T.plan.hotels[day.city]); if (h) place = `住在 ${h.name}`; }
+    }
+    const where2 = !place ? "" : place.startsWith("住在") ? `，${place}` : `，现在在「${place}」附近`;
+    const lines = [`【平安报备】${hm}，我在泰国一切都好${where2}。`];
+    if (me) lines.push(`我的位置：https://uri.amap.com/marker?position=${me.lng.toFixed(5)},${me.lat.toFixed(5)}&name=我在这里`);
+    if (today) lines.push(`今天的安排：${today}`);
+    lines.push("—— 来自 开口泰·安心游 bianzithai.pages.dev/trip");
+    const text = lines.join("\n");
+    track("trip_report", me ? "loc" : "noloc");
+    try { if (navigator.share) { await navigator.share({ text }); return; } } catch (e) { if (e.name === "AbortError") return; }
+    try { await navigator.clipboard.writeText(text); toast("已复制，粘贴到微信发给家人"); }
+    catch (e) { modal(`<div class="mid">复制下面这段发给家人</div><textarea rows="7" readonly>${esc(text)}</textarea>`); }
+  }
+
+  document.addEventListener("click", async e => {
+    const b = e.target.closest("[data-act]");
+    if (!b) return;
+    const act = b.dataset.act;
+    if (act === "close") return closeModal();
+    if (act === "play") { const p = PH.get(b.dataset.k); if (p) play(p); return; }
+    if (act === "playm") { if (MP) play(MP); return; }
+    if (act === "show") { const p = PH.get(b.dataset.k); if (p) { showPhrase(p); if (view === "sos") track("trip_sos", p.id); } return; }
+    if (act === "g") { T.g = b.dataset.g; save(); render(); return; }
+    if (act === "ex") { const t = $("#ask"); if (t) { t.value = b.textContent; t.focus(); } return; }
+    if (act === "plan") { const t = $("#ask"); const v = t ? t.value.trim() : ""; if (v.length < 4) { UI.err = "多说一点：去哪、几天、几个人"; render(); return; } return makePlan(v); }
+    if (act === "sample") { try { await loadSample(); } catch (er) { UI.err = "示例没加载出来"; render(); } return; }
+    if (act === "day") { UI.day = +b.dataset.i; render(); return; }
+    if (act === "toggle") { const k = b.dataset.k; const open = b.getAttribute("aria-expanded") === "true"; UI.open[k] = !open; render(); return; }
+    if (act === "more") return more(b.dataset.k);
+    if (act === "driver") { const it = findRef(b.dataset.ref); if (it) driverCard(it); return; }
+    if (act === "near") return nearStop();
+    if (act === "report") return report();
+    if (act === "cex") { const t = $("#ctext"); if (t) { t.value = b.textContent; UI.ctext = t.value; } return; }
+    if (act === "check") return runCheck();
+    if (act === "noimg") { UI.img = null; UI.ctext = ($("#ctext") || {}).value; render(); return; }
+    if (act === "live") { if (TALK.dir === b.dataset.dir) return stopLive(); return startLive(b.dataset.dir); }
+    if (act === "talksay") {
+      const h = TALK.hist[+b.dataset.i]; if (!h) return;
+      if (h.audio && h.audio.length) { LV2.play = LV2.play || new (window.AudioContext || window.webkitAudioContext)(); LV2.play.resume(); LV2.playT = 0; h.audio.forEach(playPCM); }
+      else if (window.speechSynthesis) { const u = new SpeechSynthesisUtterance(h.dst); u.lang = "th-TH"; u.rate = .85; speechSynthesis.cancel(); speechSynthesis.speak(u); }
+      return;
+    }
+    if (act === "talkshow") { const h = TALK.hist[+b.dataset.i]; if (h) { MP = null; modal(`<div class="th-big">${esc(h.dst)}</div><div class="mid">${esc(h.src)}</div><p class="sub">把手机屏幕转给对方看</p>`); } return; }
+    if (act === "geo") { if (T.watch) watchOff(); else watchOn(); return; }
+    if (act === "geodemo") { hotspotAlert(A.hotspots[0], true); return; }
+    if (act === "readgo") return runRead();
+    if (act === "readsay") { const it = UI.read && UI.read.items[+b.dataset.i]; if (it) speakTh(it.orig); return; }
+    if (act === "order") {
+      const it = UI.read && UI.read.items[+b.dataset.i]; if (!it) return;
+      const th = orderText(it); MP = { zh: "我要这个：" + it.zh, t: [[th, "", ""]] };
+      modal(`<div class="th-big">${esc(th)}</div><div class="mid">我要这个：${esc(it.zh)}</div>
+        <div class="row"><button class="btn big" data-act="playm">▶ 读给店家听</button></div>
+        <p class="sub">不要辣就再加一句：ไม่เผ็ด ${G() === "f" ? "ค่ะ" : "ครับ"}（不要辣）</p>`);
+      return;
+    }
+    if (act === "nearcons") { try { toast("正在定位…"); UI.near = await where(); render(); } catch (er) { toast(er.message); } return; }
+  });
+  document.addEventListener("change", async e => {
+    if (e.target.id === "rimg" && e.target.files[0]) {
+      try { UI.rimg = await shrink(e.target.files[0]); UI.rerr = null; } catch (er) { UI.rerr = er.message; render(); return; }
+      return runRead();
+    }
+    if (e.target.id !== "cimg" || !e.target.files[0]) return;
+    UI.ctext = ($("#ctext") || {}).value;
+    try { UI.img = await shrink(e.target.files[0]); UI.err = null; } catch (er) { UI.err = er.message; }
+    render();
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+  window.addEventListener("hashchange", route);
+  window.addEventListener("online", () => render());
+  window.addEventListener("offline", () => render());
+  // Offline cache for this page only (scope /trip); the main app keeps its own behaviour.
+  if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw-trip.js", { scope: "/trip" }).catch(() => {});
+
+  Promise.all([
+    fetch("data/trip/anxin.json").then(r => r.json()),
+    fetch("audio/map.json").then(r => r.ok ? r.json() : {}).catch(() => ({})),
+  ]).then(([a, m]) => { A = a; AMAP = m; route(); track("trip_open"); if (T.watch) watchOn(); })
+    .catch(() => { app.innerHTML = `<div class="err">页面没加载出来，检查一下网络再刷新。</div>`; });
+})();
+</script>
