@@ -1,7 +1,7 @@
 // Offline support for 安心游 (/trip only — registered with scope "/trip", so the main app is untouched).
 // Travellers often land with no data: the trip, SOS cards, hotel cards and Thai phrases (with audio) must still work.
 // Pages and JSON: network first, cache as fallback. Fonts, stickers, audio: cache first. APIs are never cached.
-const V = "trip-v3";
+const V = "trip-v4";
 const CITIES = ["bkk", "cnx", "hkt", "pty", "kbv", "usm"];
 const STICKERS = ["clipboard", "lotus", "padthai", "passport", "temple", "tuktuk", "wai", "house", "market", "longtail", "coconut", "camera", "plumeria", "cocktail", "elephant"];
 const FONTS = ["caveat-600-normal-latin", "mitr-400-normal-latin", "mitr-400-normal-thai", "mitr-500-normal-latin", "mitr-500-normal-thai",

@@ -2,6 +2,12 @@
 <meta charset="utf-8">
 <title>安心游泰国 · 开口泰</title>
 <meta name="description" content="泰国旅游其实很安全——能开口，就不用靠中间人。飞猪真实行程 + 每站泰语和防坑提醒 + 这靠谱吗 + 一键求助。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="安心游泰国 · 开口泰：能开口，就不用靠中间人">
+<meta property="og:description" content="飞猪真实行程，每一站的防坑提醒和要说的泰语；截图问「这靠谱吗」、拍菜单看懂、实时中泰同传、一键求助。">
+<meta property="og:image" content="https://bianzithai.pages.dev/img/trip-og.jpg">
+<meta property="og:url" content="https://bianzithai.pages.dev/trip">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F6EDDC" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#14162E" media="(prefers-color-scheme: dark)">
@@ -268,6 +274,10 @@ details pre { white-space: pre-wrap; font-family: inherit; font-size: 14px; marg
 .practice b { display: block; font-family: var(--f-display); font-weight: 500; font-size: 17px; }
 .practice small { display: block; font-size: 13px; opacity: .85; }
 .practice .go { margin-left: auto; white-space: nowrap; font-family: var(--f-display); }
+.wxhint { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; padding: 10px 12px; border-radius: 12px; background: var(--gold-soft); color: var(--ink); }
+.wxhint button { margin-left: auto; flex: none; border: 0; background: none; font-size: 18px; line-height: 1; color: var(--muted); padding: 0 2px; }
+.privacy { font-size: 13px; color: var(--muted); text-align: left; padding: 12px 14px; border-radius: 12px; background: var(--sunk); }
+.privacy b { color: var(--ink); }
 .offline { font-size: 14px; padding: 8px 12px; border-radius: 10px; background: var(--primary); color: var(--on-primary); }
 /* read a photo */
 .ritems { display: grid; gap: 8px; }
@@ -290,6 +300,7 @@ nav.tabbar a[aria-current="page"] { color: var(--accent); }
 nav.tabbar a.sos { color: var(--accent); }
 </style>
 
+<div style="display:none"><img src="img/trip-share.jpg" alt="安心游泰国" width="600" height="600"></div>
 <div class="flag"></div>
 <main id="app" class="wrap" aria-live="polite"></main>
 <nav class="tabbar" aria-label="主导航"><div class="in">
@@ -314,6 +325,7 @@ nav.tabbar a.sos { color: var(--accent); }
   if (!T.g) try { const m = JSON.parse(localStorage.getItem("bianzi-thai-v1") || "null"); if (m && m.g) T.g = m.g; } catch (e) {}
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(T)); } catch (e) {} };
   const G = () => T.g === "f" ? "f" : "m";
+  const IN_WX = /MicroMessenger/i.test(navigator.userAgent);
   const UI = { day: null, open: {}, busy: false, err: null, check: null, img: null, near: null };
 
   // ---------- anonymous usage stats (same endpoint and rules as the main app) ----------
@@ -418,7 +430,7 @@ nav.tabbar a.sos { color: var(--accent); }
   const where = () => new Promise((res, rej) => {
     if (!navigator.geolocation) return rej(new Error("这个浏览器不支持定位"));
     navigator.geolocation.getCurrentPosition(p => res({ lat: p.coords.latitude, lng: p.coords.longitude }),
-      () => rej(new Error("没拿到定位：请在浏览器里允许定位")), { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 });
+      () => rej(new Error(IN_WX ? "微信里拿不到定位：点右上角「···」→「在浏览器打开」再试" : "没拿到定位：请在浏览器里允许定位")), { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 });
   });
 
   // ---------- trip timing ----------
@@ -497,6 +509,7 @@ nav.tabbar a.sos { color: var(--accent); }
       <footer class="foot">
         <div class="row" style="justify-content:center">我是 ${segG()}</div>
         <p>酒店、景点、接机等数据来自飞猪 · AI 由阿里云百炼提供 · 安全信息附来源</p>
+        <p class="privacy"><b>隐私说明</b>：行程、求助卡、回酒店卡都只存在你的手机里。生成行程、这靠谱吗、拍一下看懂、实时同传时，你输入的文字、照片和语音会发给阿里云百炼处理，用完就丢，我们不保存。定位只在你的手机上计算，平安报备由你自己决定发不发。为防止被刷，服务器只记 IP 和调用时间；匿名使用统计只记用了哪个功能，不记内容。</p>
         <p><a href="./">← 回到开口泰：60 个场景系统学泰语，还有 AI 陪练</a></p>
       </footer>`;
   }
@@ -595,7 +608,8 @@ nav.tabbar a.sos { color: var(--accent); }
       <section class="gsec"><h2>拿不准的时候</h2>
         <div class="row"><a class="btn primary" href="#/check">截图问「这靠谱吗」</a><a class="btn" href="#/sos">看求助卡和电话</a></div></section>
       <section class="sources"><b>信息来源（截至 ${esc(A.updated)}）</b><ol>${A.sources.map(s => `<li><a href="${esc(s.u)}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`).join("")}</ol>
-        <p>政策会变，出发前请以使领馆和泰国官方最新公告为准。</p></section>`;
+        <p>政策会变，出发前请以使领馆和泰国官方最新公告为准。</p></section>
+      <p class="privacy"><b>隐私说明</b>：行程、求助卡、回酒店卡都只存在你的手机里。生成行程、这靠谱吗、拍一下看懂、实时同传时，你输入的文字、照片和语音会发给阿里云百炼处理，用完就丢，我们不保存。定位只在你的手机上计算，平安报备由你自己决定发不发。为防止被刷，服务器只记 IP 和调用时间；匿名使用统计只记用了哪个功能，不记内容。</p>`;
   }
 
   const CHECK_EX = [
@@ -655,7 +669,7 @@ nav.tabbar a.sos { color: var(--accent); }
     if (!navigator.geolocation) return toast("这个浏览器不支持定位");
     if (GEO.id == null) GEO.id = navigator.geolocation.watchPosition(onPos, err => {
       // Only a refusal stops the alerts; timeouts and weak signal indoors are normal, polling carries on.
-      if (err.code === 1) { toast("没拿到定位权限：请在浏览器设置里允许定位"); watchOff(); }
+      if (err.code === 1) { toast(IN_WX ? "微信里拿不到定位：点右上角「···」→「在浏览器打开」再开启提醒" : "没拿到定位权限：请在浏览器设置里允许定位"); watchOff(); }
     }, { enableHighAccuracy: true, maximumAge: 30000, timeout: 30000 });
     // Some phones throttle watchPosition while walking slowly; a 30-second poll keeps the alert timely.
     if (!GEO.timer) GEO.timer = setInterval(() => navigator.geolocation.getCurrentPosition(onPos, () => {}, { enableHighAccuracy: true, maximumAge: 0, timeout: 20000 }), 30000);
@@ -771,7 +785,7 @@ nav.tabbar a.sos { color: var(--accent); }
       LV2.play = LV2.play || new (window.AudioContext || window.webkitAudioContext)();
       LV2.play.resume();
       LV2.stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, channelCount: 1 } });
-    } catch (e) { TALK.dir = null; TALK.err = "需要麦克风权限：请在浏览器设置里允许这个网站使用麦克风"; render(); return; }
+    } catch (e) { TALK.dir = null; TALK.err = IN_WX ? "微信里用不了麦克风：点右上角「···」→「在浏览器打开」就能用同传" : "需要麦克风权限：请在浏览器设置里允许这个网站使用麦克风"; render(); return; }
     const ws = new WebSocket(`${location.protocol === "https:" ? "wss" : "ws"}://${location.host}/api/trip/live?to=${dir === "me" ? "th" : "zh"}`);
     LV2.ws = ws;
     ws.onmessage = ev => {
@@ -843,8 +857,9 @@ nav.tabbar a.sos { color: var(--accent); }
   let view = "home";
   function render() {
     PH.clear();
+    const wx = IN_WX && !T.wxSeen ? `<div class="wxhint"><span>在微信里打开时，<b>同传要用的麦克风</b>、<b>骗局提醒要用的定位</b>可能用不了。点右上角「···」→「在浏览器打开」，就能用全部功能。</span><button data-act="wxok" aria-label="知道了">×</button></div>` : "";
     const off = navigator.onLine === false ? `<p class="offline">现在没网：行程、求助卡、回酒店卡和泰语句子都能用；生成行程、这靠谱吗、拍照和同传要联网。</p>` : "";
-    app.innerHTML = off + (view === "plan" ? viewPlan() : view === "guide" ? viewGuide() : view === "check" ? viewCheck() : view === "sos" ? viewSOS() : view === "talk" ? viewTalk() : view === "read" ? viewRead() : viewHome());
+    app.innerHTML = wx + off + (view === "plan" ? viewPlan() : view === "guide" ? viewGuide() : view === "check" ? viewCheck() : view === "sos" ? viewSOS() : view === "talk" ? viewTalk() : view === "read" ? viewRead() : viewHome());
     document.querySelectorAll("[data-nav]").forEach(a => a.setAttribute("aria-current", a.dataset.nav === view || (view === "plan" && a.dataset.nav === "home") ? "page" : "false"));
   }
   async function route() {
@@ -992,6 +1007,7 @@ nav.tabbar a.sos { color: var(--accent); }
       return;
     }
     if (act === "talkshow") { const h = TALK.hist[+b.dataset.i]; if (h) { MP = null; modal(`<div class="th-big">${esc(h.dst)}</div><div class="mid">${esc(h.src)}</div><p class="sub">把手机屏幕转给对方看</p>`); } return; }
+    if (act === "wxok") { T.wxSeen = true; save(); render(); return; }
     if (act === "geo") { if (T.watch) watchOff(); else watchOn(); return; }
     if (act === "geodemo") { hotspotAlert(A.hotspots[0], true); return; }
     if (act === "readgo") return runRead();
