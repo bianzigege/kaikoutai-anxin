@@ -264,6 +264,10 @@ details pre { white-space: pre-wrap; font-family: inherit; font-size: 14px; marg
 .geo.on { border-style: solid; background: var(--accent-soft); }
 .modal .alert-k { font-size: 15px; font-weight: 600; color: var(--on-accent); background: var(--accent); padding: 4px 14px; border-radius: 999px; }
 .modal .th-mid { font-family: var(--f-thai); font-size: clamp(26px, 7vw, 40px); line-height: 1.35; }
+.practice { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: var(--primary); color: var(--on-primary); text-decoration: none; box-shadow: var(--shadow); }
+.practice b { display: block; font-family: var(--f-display); font-weight: 500; font-size: 17px; }
+.practice small { display: block; font-size: 13px; opacity: .85; }
+.practice .go { margin-left: auto; white-space: nowrap; font-family: var(--f-display); }
 .offline { font-size: 14px; padding: 8px 12px; border-radius: 10px; background: var(--primary); color: var(--on-primary); }
 /* read a photo */
 .ritems { display: grid; gap: 8px; }
@@ -493,16 +497,18 @@ nav.tabbar a.sos { color: var(--accent); }
       <footer class="foot">
         <div class="row" style="justify-content:center">我是 ${segG()}</div>
         <p>酒店、景点、接机等数据来自飞猪 · AI 由阿里云百炼提供 · 安全信息附来源</p>
-        <p><a href="./">← 回到开口泰，系统学泰语</a></p>
+        <p><a href="./">← 回到开口泰：60 个场景系统学泰语，还有 AI 陪练</a></p>
       </footer>`;
   }
 
   function placeHTML(it) {
     if (!it) return "";
     const name = it.name || it.title;
-    const sub = it.kind0 === "hotels" ? [it.star, it.area, it.score && `评分 ${it.score}`].filter(Boolean).join(" · ")
-      : it.kind0 === "pois" ? [it.cat, it.rank].filter(Boolean).join(" · ") + (it.desc ? `<br>${esc(it.desc)}` : "")
-      : "飞猪可订";
+    // Reference prices only when Fliggy returned a real figure (trial-mode prices come masked as "¥4xx").
+    const price = p => p && /\d/.test(p) && !/x/i.test(p) ? String(p).replace(/^(?!¥)/, "¥") : "";
+    const sub = it.kind0 === "hotels" ? [price(it.price) && `飞猪参考价 ${price(it.price)} 起`, it.star, it.area, it.score && `评分 ${it.score}`].filter(Boolean).join(" · ")
+      : it.kind0 === "pois" ? esc([price(it.tprice) && `门票参考价 ${price(it.tprice)}`, it.cat, it.rank].filter(Boolean).join(" · ")) + (it.desc ? `<br>${esc(it.desc)}` : "")
+      : price(it.price) ? `飞猪可订 · 参考价 ${price(it.price)}` : "飞猪可订";
     return `<div class="place ${it.pic ? "" : "noimg"}">
       ${it.pic ? `<img src="${esc(it.pic)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : ""}
       <div class="info"><div class="name">${esc(name)}</div><div class="sub">${it.kind0 === "pois" ? sub : esc(sub)}</div>
@@ -566,6 +572,7 @@ nav.tabbar a.sos { color: var(--accent); }
         <span>第 ${d.d} 天${di.live && i === di.idx ? " · 今天" : ""}</span><b>${esc(CITY_ZH[d.city] || "")} ${esc(d.theme)}</b>${dateOf(i) ? `<span class="now">${dateOf(i)}</span>` : ""}</button>`).join("")}</div>
       <ol class="stops">${day.items.map((it, ii) => stopHTML(day, UI.day, it, ii, cur)).join("")}</ol>
       <div class="legend"><span>读音颜色：</span><span class="t-mid">中平</span><span class="t-low">低</span><span class="t-fall">降</span><span class="t-high">高</span><span class="t-rise">升</span></div>
+      <a class="practice" href="/#chuxing"><span><b>出发前先练一遍开口</b><small>用开口泰 AI 陪练，跟 AI 演一遍机场、打车、跳岛的对话</small></span><span class="go">去练 →</span></a>
       <p class="muted small">酒店、景点和可订服务都是飞猪上的真实商品（${esc((T.meta && T.meta.source) || "飞猪")}），价格和库存以飞猪页面为准。泰语句子来自开口泰课程，标「AI 生成」的是现写的。</p>`;
   }
 
