@@ -799,8 +799,11 @@ nav.tabbar a.sos { color: var(--accent); }
       else if (t === "conversation.item.input_audio_transcription.delta") { TALK.src += j.delta || j.text || ""; liveBox(); }
       else if (t === "conversation.item.input_audio_transcription.completed") { TALK.src = j.transcript || TALK.src; liveBox(); }
       else if (t === "response.audio_transcript.delta" || t === "response.text.delta") { TALK.dst += j.delta || ""; liveBox(); }
-      else if (t === "response.audio.delta") { if (dir === "me") { playPCM(j.delta); LV2.chunks.push(j.delta); } }
+      // The model translates while the traveller is still talking. Playing the Thai right away mutes the mic
+      // (echo guard in startMic) and the rest of the sentence is lost, so hold the audio until the turn is done.
+      else if (t === "response.audio.delta") { if (dir === "me") LV2.chunks.push(j.delta); }
       else if (t === "response.done") {
+        LV2.chunks.forEach(playPCM);
         if (TALK.dst.trim()) { TALK.hist.push({ dir, src: TALK.src.trim(), dst: TALK.dst.trim(), audio: LV2.chunks }); track("trip_live", dir); }
         LV2.chunks = []; TALK.src = TALK.dst = ""; render(); const th = $(".thread"); if (th && th.lastElementChild) th.lastElementChild.scrollIntoView({ block: "end" });
       }
@@ -829,7 +832,9 @@ nav.tabbar a.sos { color: var(--accent); }
     try { LV2.ctx && LV2.ctx.close(); } catch (e) {}
     try { LV2.stream && LV2.stream.getTracks().forEach(t => t.stop()); } catch (e) {}
     LV2.proc = LV2.ctx = LV2.stream = null;
-    if (TALK.dst.trim()) TALK.hist.push({ dir: TALK.dir, src: TALK.src.trim(), dst: TALK.dst.trim() });
+    const held = LV2.chunks || []; LV2.chunks = [];
+    if (TALK.dst.trim()) TALK.hist.push({ dir: TALK.dir, src: TALK.src.trim(), dst: TALK.dst.trim(), audio: held });
+    if (!quiet) held.forEach(playPCM); // stopped by hand before the turn finished: still say what was translated
     TALK.dir = null; TALK.src = TALK.dst = ""; TALK.status = "";
     if (!quiet && view === "talk") render();
   }
