@@ -460,8 +460,12 @@ nav.tabbar a.sos { color: var(--accent); }
   // ---------- views ----------
   const sticker = (name, cls = "") => `<img class="stk ${cls}" src="img/stk/${name}.webp" alt="" aria-hidden="true" decoding="async">`;
   const segG = () => `<span class="seg" role="group" aria-label="我是"><button data-act="g" data-g="m" aria-pressed="${G() === "m"}">男生 ครับ</button><button data-act="g" data-g="f" aria-pressed="${G() === "f"}">女生 ค่ะ</button></span>`;
+  // Example trips always start in the future: the first Friday at least a week away (the stored sample was planned for a Friday).
+  const exStart = () => { const d = new Date(Date.now() + 7 * DAY); while (d.getDay() !== 5) d.setTime(d.getTime() + DAY); return d; };
+  const exDay = () => { const d = exStart(); return `${d.getMonth() + 1}月${d.getDate()}号`; };
+  const exISO = () => { const d = exStart(), z = n => String(n).padStart(2, "0"); return `${d.getFullYear()}-${z(d.getMonth() + 1)}-${z(d.getDate())}`; };
   const EXAMPLES = [
-    "11月20号从上海出发，曼谷 4 晚，两个人，喜欢寺庙和夜市",
+    `${exDay()}从上海出发，曼谷 4 晚，两个人，喜欢寺庙和夜市`,
     "带爸妈去清迈 3 晚，节奏慢一点",
     "曼谷 2 晚 + 芭提雅 2 晚，朋友四个人，想看海和夜生活",
   ];
@@ -494,7 +498,7 @@ nav.tabbar a.sos { color: var(--accent); }
         <h2>${T.plan ? "重新规划一趟" : "说说你的泰国行程"}</h2>
         <p class="muted small">一句话就行。AI 从飞猪真实的酒店、景点、接机里挑选，排好每一天，再给每一站配上要说的泰语和防坑提醒。目前支持曼谷、清迈、普吉、芭提雅、甲米、苏梅岛。</p>
         ${UI.busy ? `<div class="loading" id="loading"><div class="bar"><i></i></div>${STEPS.map((s, i) => `<div class="step" data-step="${i}">${s}</div>`).join("")}</div>` : `
-        <textarea id="ask" rows="3" maxlength="300" placeholder="比如：11月20号从上海出发，曼谷 4 晚，两个人，喜欢寺庙和夜市">${esc(T.text || "")}</textarea>
+        <textarea id="ask" rows="3" maxlength="300" placeholder="比如：${exDay()}从上海出发，曼谷 4 晚，两个人，喜欢寺庙和夜市">${esc(T.text || "")}</textarea>
         <div class="row">${EXAMPLES.map(x => `<button class="ex" data-act="ex">${esc(x)}</button>`).join("")}</div>
         ${UI.err ? `<div class="err">${esc(UI.err)}</div>` : ""}
         <div class="row"><button class="btn primary big" data-act="plan">生成我的行程</button><button class="btn" data-act="sample">先看一个示例</button></div>`}
@@ -901,6 +905,7 @@ nav.tabbar a.sos { color: var(--accent); }
   async function loadSample() {
     const j = await fetch("data/trip/sample.json").then(r => r.json());
     T.plan = j.plan; T.intent = j.intent; T.meta = j.data; T.notice = null; T.extra = {}; T.text = j.text || ""; UI.day = null; UI.open = {};
+    if (T.intent && T.intent.start) { T.intent = { ...T.intent, start: exISO() }; T.text = T.text.replace(/^\d+\s*月\s*\d+\s*[号日]/, exDay()); }
     save(); location.hash = "#/plan";
   }
   async function more(key) {
